@@ -1,0 +1,125 @@
+package com.company;
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class Main {
+
+    public static void main(String[] args) {
+Boolean Status=true;
+        Personer hua;
+        Personer william;
+        startm();
+
+
+
+        ArrayList<Integer> lista = new ArrayList<Integer>();
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        ArrayList<Personer> p= new ArrayList<Personer>();
+
+        hua = new Personer("hua", lista);
+        william = new Personer("william", list);
+        p.add(hua);
+        p.add(william);
+        // ArrayList<Personer> personlista= new ArrayList<>();
+        /*personlista.add(hua);
+        personlista.add(new Personer("peter", lista));
+        System.out.println(personlista.get(1).name);*/
+        // endast intressant ifall vi skulle tänka på godtyckligt många personer
+        // men är intresserad av två personer.
+
+        System.out.println(hua.name);
+        hua.lista.add(2);
+        hua.lista.add(3);
+        System.out.println(hua.lista);
+        william.lista.add(3);
+        william.lista.add(4);
+        william.lista.add(2);
+        william.lista.add(2);
+        william.lista.add(2);
+        william.lista.add(2);
+
+        Scanner keyboard = new Scanner(System.in);
+
+
+
+        System.out.println(hua.calculate(william, hua));
+            while(Status!=false) {
+               String keyboardinput=  keyboard.nextLine();
+                switch(keyboardinput){
+                    case "calculate": System.out.println(hua.calculate(william, hua)); break;
+                    case "list": System.out.println("huas kostnader ");System.out.println(hua.lista); System.out.println("williams kostnader");
+                    System.out.println(william.lista);break;
+                    case "clearlist": william.lista= new ArrayList<Integer>(); hua.lista = new ArrayList<Integer>();
+                    case "hjälp": helpprint();
+                }
+
+         for(int i=0; i<p.size(); i++) {
+             String keyboardloop;
+                    if (keyboardinput.equals("add." + p.get(i).name)) {
+                        System.out.println("skriv in samtliga kostnader för " + p.get(i).name + " avsluta med e");
+
+                        while(true){
+                        keyboardloop=  keyboard.nextLine();
+                        if(keyboardloop.equals("e")){System.out.println("Samtliga värden har lagts till "+p.get(i).name +"s lista"); break;};
+                        p.get(i).lista.add(Integer.valueOf(keyboardloop));
+                        }
+
+                    }
+                }
+
+
+                if (keyboardinput.equals("e")){break;}}
+
+
+
+    }
+    static class Personer {
+        String name;
+        ArrayList<Integer> lista;
+
+        Personer(String namn, ArrayList<Integer> list){
+           lista=list;
+            name= namn;
+        }
+
+        public String calculate(Personer a,Personer b){
+            int summaa=0;
+            int summab=0;
+            int size;
+
+            //
+
+            // beräknar största vektor och sätter den till size.
+
+
+            for(int i=0; i<b.lista.size() ; i++){
+                summab= b.lista.get(i) + summab;
+            }
+            for(int i=0; i<a.lista.size() ; i++){
+            summaa= a.lista.get(i) + summaa;}
+
+            if(summaa<summab){
+                double Betalning=(Math.subtractExact(summab,summaa))/2.0;
+                return (a.name + " ska betala"+ Betalning+ "kr till" );
+            }
+            else{
+                double Betalning= (Math.subtractExact(summaa,summab))/2.0;
+                return (a.name + " ska betala "+ Betalning + " kr till "+ b.name);}
+
+        }
+
+        // write your code here
+    }
+    static void startm(){
+        System.out.println("Hej jag har skapat det här programmet för att enklare beräkna våra matkostnader, tryck e för att avsluta programmet," +
+                "tryck hjälp för mer information");
+
+    }
+    static void helpprint(){
+        System.out.println();
+        System.out.println("list - listar nuvarande värden" );
+        System.out.println("calulate - räknar ut hur mycket personen ska betala beroende på listvärden, delar allt på hälften ");
+        System.out.println("add.name - lägger till kostnader på specifik person");
+        System.out.println("clearlist - tar bort samtliga kostnader från båda parterna");
+    }
+}
