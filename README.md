@@ -14,7 +14,7 @@ And i think its good oppurtunity for me to learn more about data bases.
 I also have an idea how i could expand this idea with arbitary amount of people 
 The calculation of how much they should pay each other becomes a bit more complicated.
 The formula that i would use 
-(cost diffrence between who paid the most the actual paying person)/2 
-print "you should pay (name of the one who paid most)"  
+(cost diffrence between who paid the most and the actual paying person)/2 )
+print " (The actual person)  should pay (name of the one who paid most)"  
 
 But i don't find it intresting as i can't see any uses for it. Maybe if i get i third roomie, who knows! :) 
