@@ -7,3 +7,4 @@ However, the application have been expanded to a working gui application, which 
 
 
 
+The project was made because either me or my sister, wanted to calculate how much we should pay each other each month for the shared food cost. 
