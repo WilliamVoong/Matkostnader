@@ -3,7 +3,7 @@ A project used to calculate the divided cost of two peoples grocery cost, and te
 However, the application have been expanded to a working gui application, which makes it more user friendly.
 
 
-![alttext](https://github.com/WilliamVoong/Matkostnader/blob/master/Capture.PNG)
+![alttext](https://github.com/WilliamVoong/Matkostnader/blob/master/Demo.PNG)
 
 
 
